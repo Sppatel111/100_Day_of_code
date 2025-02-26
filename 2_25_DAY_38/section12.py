@@ -36,14 +36,14 @@
 # print(other(hello))
 
 
-def new_decorator(any_function):
-    def wrap_fun():
-        print(" some extra code...")
-        any_function()
-        print(" some extra code...")
-
-    return wrap_fun
-
+# def new_decorator(any_function):
+#     def wrap_fun():
+#         print(" some extra code...")
+#         any_function()
+#         print(" some extra code...")
+#
+#     return wrap_fun
+#
 
 # def func_need_decorator():
 #     print(" i want decorator")
@@ -51,19 +51,22 @@ def new_decorator(any_function):
 # decorator1=new_decorator(func_need_decorator)
 # decorator1()
 
-@new_decorator
-def func_need_decorator():
+# @new_decorator
+# def func_need_decorator():
+#     print(" i want decorator")
+#
+# func_need_decorator()
+
+def outer_fun(func):
+    print("i ma outer")
+    func()
+    def inner_fun():
+        print("I am inner")
+
+    return inner_fun
+
+def new_func():
     print(" i want decorator")
 
-
-func_need_decorator()
-
-# def add(a,b):
-#     return a+b
-#
-# def calculation(ope_fun,n1,n2):
-#     return ope_fun
-#
-# addition=calculation(add,1,2)
-# add
-# generator:IT ALLOWED YOU WRITE FUNCTION THAT CAN SEND BACK VALUE  AND
+nested=outer_fun(new_func)
+nested()

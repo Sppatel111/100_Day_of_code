@@ -24,32 +24,32 @@
 
 
 ## nested function , return function as value
-# def outer_fun():
-#     print("i ma outer")
-#     def inner_fun():
-#         print("I am inner")
-#
-#     return inner_fun
-#
-# nested = outer_fun()
-# nested()
+def outer_fun():
+    print("i ma outer")
+    def inner_fun():
+        print("I am inner")
+
+    return inner_fun
+
+nested=outer_fun()
+nested()
 
 
 # now decorater in two ways like,
-import time
-def delay_decorator(func):
-    def wrapper():
-        time.sleep(2)
-        func()
-    return wrapper
-
-def hello():
-    print("hi")
-decorator1=delay_decorator(hello)
-decorator1()
-
-@delay_decorator
-def bye():
-    print("ok bye!")
-bye()
-
+# import time
+# def delay_decorator(func):
+#     def wrapper():
+#         time.sleep(2)
+#         func()
+#     return wrapper
+#
+# def hello():
+#     print("hi")
+# decorator1=delay_decorator(hello)
+# decorator1()
+#
+# @delay_decorator
+# def bye():
+#     print("ok bye!")
+# bye()
+#

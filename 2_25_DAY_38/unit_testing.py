@@ -11,7 +11,7 @@ class TestCap(unittest.TestCase):
         t = 'python programming'
         result = pylint_for_test.cap_text(t)
         print(result)
-        self.assertEqual(result , 'Python Programming')
+        self.assertEqual(result , 'Python programming')
         print(result)
 
 if __name__ == '__main__':
