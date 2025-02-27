@@ -163,6 +163,6 @@ import os
 
 import shutil
 
-shutil.make_archive("example","zip","D:/SNEHA1/100_Day_of_code/2_26_DAY_39/exmp")
+# shutil.make_archive("example","zip","D:/SNEHA1/100_Day_of_code/2_26_DAY_39/exmp")
 
 shutil.unpack_archive('example.zip','finalunzip',)

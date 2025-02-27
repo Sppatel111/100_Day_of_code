@@ -48,7 +48,7 @@ class MovieRateForm(FlaskForm):
 
 
 class FindMovieForm(FlaskForm):
-    title = StringField("Movie Title", validators=[DataRequired()])
+    title = StringField("Movie Title", validators=[DataRequired(message=" enter first")])
     submit = SubmitField("Add Movie")
 
 def load_movies_from_csv():
