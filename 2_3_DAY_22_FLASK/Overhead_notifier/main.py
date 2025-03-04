@@ -2,9 +2,9 @@ import requests
 import datetime
 import smtplib
 import time
-
-my_email = "abcd1234567sp@gmail.com"
-password = "unjggoojpipszyqr"
+from manage import KEY_PASSWORD,EMAIL
+my_email = EMAIL
+password = KEY_PASSWORD
 
 MY_LAT = 20.593683
 MY_LNG = 78.962883

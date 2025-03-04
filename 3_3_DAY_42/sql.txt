@@ -1,0 +1,34 @@
+##DDL
+create table example(name varchar(255),age int);
+alter table example add column email varchar(255);
+TRUNCATE TABLE orders;
+drop table Customers;
+
+
+##DQL
+select * from example;
+
+#DML
+insert into Example(name,age) values("dfetet",23);
+update example set name="xyz" where age=23;
+delete from example where name="xyz";
+LOCK TABLE example IN lock_mode;
+
+##TCL
+#commit,rollback,savepoint
+begin transcation;
+# here
+commit;
+rollback;
+#create savepoint in transcation
+savepoint sp1;
+# for specific savepoint to rollback
+rollback to sp1;
+#release savepoints
+release savepoint sp1
+
+
+##DCL
+#grant,revoke
+
+grant select on users to "xyz"@"localhost";

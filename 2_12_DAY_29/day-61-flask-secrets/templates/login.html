@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Login</title>
+
+	</head>
+	<body>
+	    {% extends "base.html" %}
+		{% from 'bootstrap5/form.html' import render_form %}
+		{% block title %}Login{% endblock %}
+
+		{% block content %}
+        <div class="container">
+			<h1>login</h1>
+			{{ render_form(form) }}
+        <!-- This is where our form will go. -->
+        </div>
+	    {% endblock %}
+	</body>
+</html>
+
+<!--<form method="post" action="{{url_for('login')}}" novalidate>-->
+<!--				{{ form.csrf_token }}-->
+
+<!--				{{form.email.label}}-->
+<!--				<br>-->
+<!--				{{ form.email(size=40) }}-->
+<!--				{% for err in form.email.errors %}-->
+<!--				    <span style="color:red">{{err}}</span>-->
+<!--				{% endfor %}-->
+<!--				<br>-->
+<!--				{{ form.password.label }}-->
+<!--				<br>-->
+<!--				{{ form.password(size=40) }}-->
+<!--				{% for err in form.password.errors %}-->
+<!--				    <span style="color:red">{{err}}</span>-->
+<!--				{% endfor %}-->
+<!--				<br>-->
+<!--				{{ form.submit}}-->
+<!--			</form>-->

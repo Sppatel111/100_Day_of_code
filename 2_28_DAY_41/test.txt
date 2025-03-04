@@ -1,0 +1,19 @@
+# Write a Python program that simulates a coffee machine. The program should:
+# 1. Display a menu with coffee options (e.g., Espresso, Latte, Cappuccino) and their prices. Ask user for coffee and also ask how many coffees are need.
+# 2. Allow the user to insert money and ensure that the amount covers the coffee cost.
+#    If the amount is insufficient, cancel the order.
+#    If the amount exceeds the cost, return the change.
+# 3. Check if there are enough ingredients (water, coffee, milk) to make the selected coffee.If not, display a message indicating the shortage.
+# 4. Deduct the required ingredients from the machine's inventory when a coffee is made.
+# 5. The program should run continuously until the user chooses to exit.
+# 6. Input validation is required to ensure correct choices and money input.
+
+data = {
+    "coffee_ingredients": {
+        "Espresso": {"milk": "0 ml", "water": "50 ml", "coffee": "18 gm", "price": "$1.50"},
+        "Latte": {"milk": "150 ml", "water": "200 ml", "coffee": "24 gm", "price": "$2.50"},
+        "Cappuccino": {"milk": "100 ml", "water": "250 ml", "coffee": "24 gm", "price": "$3.00"}
+    },
+    "available_ingredients": {"milk": "2 liter", "water": "2.5 liter", "coffee": "0.5 kg"},
+    "money": 0
+}

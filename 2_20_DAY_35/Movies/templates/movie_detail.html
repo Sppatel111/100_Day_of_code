@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="heading">{{ movie.title }}</h1>
+    <img src="{{ MOVIE_DB_IMAGE_URL }}{{ movie.poster_path }}" alt="{{ movie.title }} poster">
+    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+    <p><strong>Description:</strong> {{ movie.overview }}</p>
+    <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
+    <p><strong>Genres:</strong> {{ movie.genres | map(attribute='name') | join(', ') }}</p>
+    <a href="{{ url_for('rate_movie', id=movie.id) }}">Rate this Movie</a>
+</div>
+{% endblock %}

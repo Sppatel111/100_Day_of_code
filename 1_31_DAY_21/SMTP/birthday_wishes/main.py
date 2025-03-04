@@ -3,9 +3,10 @@ import random
 import smtplib
 import datetime as dt
 import pandas as pd
+from pass2 import PASSWORD1,EMAIL
 
-my_email = "abcd1234567sp@gmail.com"
-password = "unjggoojpipszyqr"
+my_email = EMAIL
+password = PASSWORD1
 PLACE = "[Name]"
 
 today = dt.datetime.now()
