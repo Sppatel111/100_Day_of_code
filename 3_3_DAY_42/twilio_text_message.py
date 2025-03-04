@@ -1,6 +1,6 @@
 import requests
 from twilio.rest import Client
-from secret import AUTH_TOKEN,API_KEY,ACCOUNT_SID
+from secret import AUTH_TOKEN,API_KEY,ACCOUNT_SID,FROM,TO
 #weather
 api_key=API_KEY
 OWN_ENDPOINT="https://api.openweathermap.org/data/2.5/weather"
@@ -31,8 +31,8 @@ if will_rain:
 
     message = client.messages.create(
         body="It's going to rain today!!bring Umbrella.",
-        from_='+19302063039',
-        to='+919327172210'
+        from_=FROM,
+        to=TO
     )
     print(message.status)
 
