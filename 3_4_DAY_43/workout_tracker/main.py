@@ -38,16 +38,17 @@ print(now_time)
 
 for exercise in result["exercises"]:
     sheet_inputs = {
-        "workout": {
+        "sheet1": {
             "date": today_date,
             "time": now_time,
             "exercise": exercise["name"].title(),
             "duration": exercise["duration_min"],
-            "calories": exercise["nf_calories"]
+            "calories": exercise["nf_calories"],
+
         }
     }
-
-    sheet_response = requests.post(sheet_endpoint, json=json.dumps(sheet_inputs),headers=headers)
+    print(sheet_inputs)
+    sheet_response = requests.post(sheet_endpoint, json=sheet_inputs,headers=headers)
 
     print(sheet_response.text)
 
