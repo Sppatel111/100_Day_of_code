@@ -1,0 +1,37 @@
+distinct:
+SELECT distinct country
+FROM Customers;
+
+SELECT COUNT(DISTINCT Country) FROM Customers;
+
+where: (for filter record)
+select * from customers where country='USA';
+
+order by:(asc,desc)
+select * from customers order by age;
+
+select * from customers order by age desc;
+
+select * from customers order by first_name;
+
+select * from customers order by country,first_name;
+
+select * from customers order by country asc,first_name desc;
+
+operators:
+AND:(all should be to true)
+
+select * from customers where country='USA' and first_name='John';
+
+select * from customers where country='USA' and first_name='John' and age=28;
+
+OR:
+select * from customers where country='USA' or first_name='John';
+
+#both AND and OR
+select * from customers where country='USA' and (first_name='John' or age=28);
+
+select * from customers where country='UK' and first_name='David' or age='20';
+
+not:
+select * from customers where not country='UK';

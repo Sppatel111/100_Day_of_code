@@ -1,5 +1,7 @@
 import requests
-sheet_endpoint='https://api.sheety.co/6d839aa4beb61480cf4b7817313db86b/myTravelSheet/sheet1'
+from flight_keys import SHEET_ENDPOINT
+
+sheet_endpoint=SHEET_ENDPOINT
 
 class DataManager:
     def __init__(self):

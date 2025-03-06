@@ -1,7 +1,8 @@
 import requests
+from flight_keys import API_KEY,API_SECRET
 # from https://developers.amadeus.com/
-api_key='vhJE54g6fZvIjFGLdy7eXmGHFBDPw34V'
-api_secret='IAcRWhywWNFfpraD'
+api_key=API_KEY
+api_secret=API_SECRET
 
 flight_endpoint='https://test.api.amadeus.com/v2/shopping/flight-offers'
 iata_endpoint='https://test.api.amadeus.com/v1/reference-data/locations/cities'
@@ -79,40 +80,3 @@ class FlightSearch:
 # ft=FlightSearch()
 # ft.get_destination_code("Paris")
 # print(ft.token)
-# query2={
-#             "currencyCode": "GBP",
-#             "originDestinations": [
-#                 {
-#                     "id": "1",
-#                     "originLocationCode": origin_city_code,
-#                     "destinationLocationCode": destination_city_code,
-#                     "departureDateTimeRange": {
-#                         "date": from_time.strftime("%Y-%m-%d"),
-#                         "time": to_time.strftime("%Y-%m-%d")
-#                     }
-#                 }
-#             ],
-#             "travelers": [
-#                 {
-#                     "id": "1",
-#                     "travelerType": "ADULT"
-#                 }
-#             ],
-#             "sources": [
-#                 "GDS"
-#             ],
-#             "searchCriteria": {
-#                 "maxFlightOffers": 2,
-#                 "flightFilters": {
-#                     "cabinRestrictions": [
-#                         {
-#                             "cabin": "BUSINESS",
-#                             "coverage": "MOST_SEGMENTS",
-#                             "originDestinationIds": [
-#                                 "1"
-#                             ]
-#                         }
-#                     ]
-#                 }
-#             }
-#         }
