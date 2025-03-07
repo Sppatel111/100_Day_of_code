@@ -1,8 +1,11 @@
 import requests
-from config44 import API_KEY,API_SECRET
+from dotenv import load_dotenv
+# from config44 import API_KEY,API_SECRET
+import os
 # from https://developers.amadeus.com/
-api_key=API_KEY
-api_secret=API_SECRET
+
+api_key=os.environ.get("API_KEY")
+api_secret=os.environ.get("API_SECRET")
 
 flight_endpoint='https://test.api.amadeus.com/v2/shopping/flight-offers'
 iata_endpoint='https://test.api.amadeus.com/v1/reference-data/locations/cities'

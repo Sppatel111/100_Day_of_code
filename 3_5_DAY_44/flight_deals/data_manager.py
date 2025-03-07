@@ -1,7 +1,9 @@
 import requests
-from config44 import SHEET_ENDPOINT
-
-sheet_endpoint=SHEET_ENDPOINT
+from dotenv import load_dotenv
+import os
+# from config44 import SHEET_ENDPOINT
+load_dotenv()
+sheet_endpoint=os.environ.get("SHEET_ENDPOINT")
 
 class DataManager:
     def __init__(self):
