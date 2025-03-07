@@ -1,0 +1,84 @@
+#not
+SELECT first_name, age
+FROM Customers where not country='UK';
+
+SELECT first_name, age
+FROM Customers where first_name not like 'A%';
+
+SELECT first_name, age
+FROM Customers where age not between 20 and 30;
+
+SELECT first_name, age
+FROM Customers where country not in('UK','USA');
+
+SELECT first_name, age
+FROM Customers where not age<25;
+
+
+
+##agregrate function:
+min,max,count,avg,sum
+
+SELECT  min(age)FROM Customers;
+
+SELECT  max(age) FROM Customers
+
+SELECT  max(first_name) FROM Customers;
+
+SELECT  count(*) FROM Customers;
+
+SELECT  count(first_name) FROM Customers where last_name='Doe';
+
+SELECT  count(distinct first_name) FROM Customers;
+
+SELECT  count(*) as total_count,age FROM Customers  group by age;
+
+SELECT  sum(customer_id) FROM Customers;
+
+SELECT  sum(customer_id) FROM Customers where age<=25;
+
+SELECT  customer_id, sum(age) as total_of_age FROM Customers;
+
+SELECT sum(age+10) FROM Customers;
+
+SELECT sum(age * customer_id) FROM Customers;
+
+SELECT avg(age) FROM Customers;
+
+SELECT avg(age) as average_of_age FROM Customers;
+
+SELECT * FROM Orders where amount> (select avg(amount) from Orders);
+
+SELECT avg(amount) as avg_amount,order_id FROM Orders group by item ;
+
+#like:
+wildcard: %,_
+
+select * from Orders where item like 'K%' ;
+
+select * from Orders where item like '%n%' ;
+
+select * from Orders where item like '%_d' ;
+
+select * from Customers where first_name like '%_d' or last_name like 'D%' ;
+
+select * from Customers where first_name like 'John';
+
+##in between
+select * from Customers where country in ('USA','UK');
+
+select * from Customers where country not  in ('USA','UK');
+
+select * from Customers where customer_id in (select customer_id from Orders);
+
+select * from Customers where customer_id not in (select customer_id from Orders);
+
+select * from Customers where age between 20 and 25;
+
+select * from Orders where amount not between 200 and 400;
+
+select * from Orders where amount  between 200 and 400 and customer_id in(1,2,3);
+
+select * from Customers where first_name  between 'Betty' and 'John' ;
+
+select * from Customers where first_name  between 'Betty' and 'John' order by age ;
