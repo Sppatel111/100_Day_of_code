@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 # from config44 import API_KEY,API_SECRET
 import os
 # from https://developers.amadeus.com/
-
+load_dotenv()
 api_key=os.environ.get("API_KEY")
 api_secret=os.environ.get("API_SECRET")
 
