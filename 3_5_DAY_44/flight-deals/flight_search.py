@@ -1,5 +1,5 @@
 import requests
-from flight_keys import API_KEY,API_SECRET
+from config44 import API_KEY,API_SECRET
 # from https://developers.amadeus.com/
 api_key=API_KEY
 api_secret=API_SECRET
