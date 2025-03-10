@@ -17,9 +17,5 @@
 3_4_DAY_43/workout_tracker/config3.py
 
 #3_5_DAY_44
-3_5_DAY_44/flight_deals/.env
-#3_10_DAY_47
-3_10_DAY_47/spotify_config.py
 
-#virtula envioronment
-.venv
+3_5_DAY_44/flight_deals/.env
