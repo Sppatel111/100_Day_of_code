@@ -13,3 +13,4 @@ soup=BeautifulSoup(response.text,"html.parser")
 song_name_spans=soup.select("li ul li h3")
 song_names=[song.getText().strip() for song in song_name_spans]
 print(song_names)
+

@@ -1,0 +1,33 @@
+#FOREIGN KEY
+#NOT WORKING IN ONLINE EDITOR
+
+CREATE TABLE PRODUCT(PRODUCT_ID INT PRIMARY KEY ,NAME VARCHAR(255) NOT NULL,
+ customer_id int FOREIGN KEY REFERENCE Customers(customer_id);
+
+CREATE TABLE PRODUCT(PRODUCT_ID INT PRIMARY KEY ,NAME VARCHAR(255) NOT NULL,
+ FOREIGN KEY(customer_id) REFERENCES Customers(customer_id);
+
+ALTER TABLE Orders add FOREIGN KEY(shipping_id) REFERENCES Shippings (shipping_id);
+
+
+#CHECK
+
+create table xyz(customer_id int primary key ,age int check (age <18));
+
+insert into Xyz(customer_id,age) values(111,45);
+
+if greater than 18 than it not enters row.
+
+Error: CHECK constraint failed: age <18
+
+alter table Xyz
+
+#defult
+
+create table students(id int ,name varchar(255),age int default 22);
+
+insert into Students(id,name) values (11,"etwea");
+
+#index
+
+create index name on abc(id int, name varchar(255), cost int ); 

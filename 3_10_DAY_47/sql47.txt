@@ -1,0 +1,85 @@
+#null values check using
+ is null and is not null operators
+
+SELECT age FROM Customers where  age is null;
+
+SELECT age FROM Customers where  age is not null;
+
+#create table
+create table students(id int,name varchar(255));
+
+#insert
+insert into students(id,name) values(201,"rtawrt");
+
+insert into students(name) values("ghdry");
+
+insert into students(id,name) values(11,"ghdry"),(111,"tert");
+
+#update
+
+update students set id=101 where name="ghdry";
+
+#delete
+delete from students where id=101;
+
+#also we used for delete  all records
+
+delete from students;
+
+#delete table
+drop table students;
+
+## SQL CONSTRAINTS
+NOT NULL,UNIQUE,PRIMARY KEY,FOREIGN KEY,CHECK,DEFAULT,CREATE INDEX
+
+#NOT NULL :
+by default it take null value
+
+# while creating table we add directly
+
+create table Persons (
+    id int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+#if table is created we use alter query
+alter table Customers alter column customer_id int not null;
+
+#UNIQUE
+create table forcheck (id int not null unique);
+
+#for the make one column as unique value
+create table forcheck2 (id int not null,age int not null, unique(id) );
+
+#multipl value with unique
+create table forcheck2 (id int not null,age int not null,constraint UC_forcheck2 unique(id,age) );
+
+#after creating table we also add unique constraint with alter query
+alter table shippings add unique (shipping_id);
+
+#for drop unique constraint
+using drop index uc_tablename or using drop constraint uc_tablename
+
+#PRIMARY KEY
+
+CREATE TABLE FACULTY (FACULTY_ID INT PRIMARY KEY, NAME VARCHAR(255));
+
+# FOR ADDING AFTER CREATING TABLE SOME COLUMN AS PRIMARY KEY
+#NOT WORKING IN ONLINE EDITOR
+ALTER TABLE FACULTY ADD CONSTRAINT PK_FACULTY PRIMARY KEY (ID,NAME);
+
+ALTER TABLE FACULTY ADD  PRIMARY KEY (ID);
+
+
+#FOR DROPING PRIMARY KEY CONSTRAINT
+
+ALTER TABLE FACULTY DROP PRIMARY KEY;
+
+ALTER TABLE FACULTY DROP CONSTRAINT PK_FACULTY;
+
+#FOREIGN KEY
+#not work in online editor
+
+CREATE TABLE STUDENTS(STUDENT_ID INT PRIMARY KEY, CLASS VARCHAR(255), FACULTY_ID INT FOREIGN KEY REFERENCES FACULTY(FACULTY_ID);

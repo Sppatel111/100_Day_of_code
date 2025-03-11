@@ -16,7 +16,7 @@ if weekday == 4:
         all_quotes = file.readlines()
         quote = random.choice(all_quotes)
     print(quote)
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com",587) as connection:
         connection.starttls()
         connection.login(my_email, password)
         connection.sendmail(from_addr=my_email, to_addrs=my_email,msg=f"Subject:Friday Quotes \n\n {quote}")
