@@ -30,4 +30,4 @@ insert into Students(id,name) values (11,"etwea");
 
 #index
 
-create index name on abc(id int, name varchar(255), cost int ); 
+create index idex_name on abc(id int, name varchar(255), cost int );

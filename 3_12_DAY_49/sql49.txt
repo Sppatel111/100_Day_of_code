@@ -1,0 +1,49 @@
+# sql aliases
+
+#as keyword
+select customer_id as id from Customers;
+
+#WE CAN ALSO USE WITHOUT AS KEYWORD
+select customer_id id from Customers;
+
+select customer_id AS  id,first_name from Customers;
+
+select customer_id AS  id,first_name as [my grerat customer] from Customers;
+
+#cloumn concatination
+select customer_id as  id ,(first_name ||' '|| last_name) as name from Customers;
+
+#not work in online editor
+select customer_id as  id , first_name +' '+ last_name  as name from Customers;
+#for mysql
+select customer_id as  id ,CONCAT(first_name +' '+ last_name) as name from Customers;
+
+#table as different name
+#for the table it useless but forte more table queries you perform in one query than it is usefull
+
+select * from Customers as Students;
+
+select c.customer_id,o.order_id, c.first_name
+from Customers as c,Orders as o
+where c.customer_id ==o.customer_id order by c.customer_id;
+
+
+#SELECT TOP OR LIMIT
+
+# select top clause(not all database support this)
+# it used to specify the number of records to fetch
+select top 3 * from Customers;
+
+#limit(MYSQL)
+select * from Customers limit 3;
+
+# TOP PERCENT
+(NOT WORK IN ONLINE EDITOR)
+select TOP 50 PERCENT * from Customers;
+
+
+#JOIN CLAUSE
+
+# IT USED TO COMBINE ROWS FROM TWO TABLES ACCORDING TO COLUMN
+
+#TYPE:INNER JOIN,LEFT OUTER JOIN,RIGHT OUTER JOIN,FULL OUTER JOIN
