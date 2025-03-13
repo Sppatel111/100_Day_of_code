@@ -1,0 +1,59 @@
+sql joins:
+#JOIN CLAUSE
+
+# IT USED TO COMBINE ROWS FROM  TABLES ACCORDING TO COLUMN
+
+#TYPE:INNER JOIN,LEFT OUTER JOIN,RIGHT OUTER JOIN,FULL OUTER JOIN ,SELF JOIN
+
+
+#INNER JOIN
+#MATCHING VALUES
+# IT SHOW THE RECORD OF ORDER TABLE WHICH HAVE THE  CUSTOMER ID SAME WITH BOTH TABLE.
+
+SELECT Orders.order_id,Customers.customer_id,Orders.amount From Order
+ INNER JOIN Customers ON Customers.Customer_id == Orders.customer_id;
+
+#JOIN OR INNER JOIN ARE SAME
+SELECT order_id,first_name,amount FROM Orders
+INNER JOIN Customers ON Customers.Customer_id == Orders.customer_id;
+
+SELECT order_id,first_name,amount FROM Orders
+JOIN Customers ON Customers.Customer_id == Orders.customer_id;
+
+#three tables
+SELECT order_id,first_name,amount,status FROM
+((Orders INNER JOIN Customers ON Customers.Customer_id == Orders.customer_id)
+ INNER JOIN Shippings ON Orders.order_id==Shippings.shipping_id);
+
+
+#LEFT OUTER JOIN
+SELECT order_id,first_name,amount FROM Customers
+LEFT JOIN Orders ON Customers.Customer_id == Orders.customer_id;
+
+
+SELECT order_id,first_name,amount FROM Customers
+LEFT JOIN Orders ON Customers.Customer_id == Orders.customer_id order by first_name;
+
+
+# RIGHT OUTER JOIN
+
+SELECT customers.customer_id, orders.order_id, orders.order_date
+FROM customers
+RIGHT JOIN orders
+ON customers.customer_id = orders.customer_id
+ORDER BY customers.customer_id;
+
+
+#FULL OUTER JOIN or FULL JOIN
+
+#it show both table full data
+SELECT customers.customer_id, orders.order_id, orders.order_date
+FROM customers
+FULL OUTER JOIN orders
+ON customers.customer_id = orders.customer_id
+ORDER BY customers.customer_id;
+
+#SELF JOIN
+# joni it with self
+ SELECT A.first_name as f1, B.first_name as f2 FROM Customers A, Customers B where A.country = B.country;
+
