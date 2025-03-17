@@ -1,0 +1,65 @@
+###SQL UNION OPERATOR
+
+#SAME NUMBER OF COLUM WITH SAME DATATYPE ALSO IN SAME ORDER
+
+make new table supplier same to customer details:
+  CREATE TABLE Suppliers(s_id int not null unique,
+  f_name varchar(200) not null,
+  l_name varchar(200) not null,
+  age int not null,
+   country varchar(255) not null);
+
+insert into suppliers(s_id,f_name,l_name,age,country) values(1,'rwerw','rwrW',22,'INDIA');
+
+##
+select * from Customers union select * from Suppliers;
+
+#distinct value(union)
+select first_name from Customers union select f_name from Suppliers;
+
+select first_name from Customers where first_name='David' union select f_name from Suppliers;
+
+select 'customer' as Type,first_name,last_name,age,country from Customers  union
+ select 'supplier', f_name,l_name,age,country from Suppliers;
+
+#union all
+select first_name from Customers union all select f_name from Suppliers;
+
+#### GROUP BY
+#GROUPS ROW THAT HAVE SAME VALUES IN SUMMARY ROWS
+#USUALLY USE WITH AGGREGATE FUNCTION
+
+SELECT COUNT(customer_id),country FROM Customers GROUP BY country;
+
+#group by with join
+SELECT Suppliers.f_name,COUNT(order_id) FROM Orders LEFT JOIN Suppliers ON Orders.order_id == Suppliers.s_id GROUP BY f_name;
+
+
+### HAVING CLAUSE
+having clause added in the sql because using aggregate function we can't use where clause
+for that required group by
+
+select count(customer_id),country from Customers group by country having count(customer_id)>1;
+
+SELECT Customers.first_name,COUNT(order_id) as numberoforders FROM
+(Orders INNER JOIN Customers ON Orders.order_id == Customers.customer_id)
+GROUP BY first_name HAVING COUNT(order_id)>0;
+
+### exists
+it returns true if records are there
+
+select first_name from Customers where exists
+(select item from Orders where Orders.customer_id ==Customers.customer_id and amount>200);
+
+## Any,all operators
+Any:
+return true any value meets to condition
+
+select first_name from Customers where customer_id = ANY(select item from Orders where amount > 200);
+
+All:
+return true if all value meets to condition
+
+select first_name from Customers where True;
+
+select first_name from Customers where customer_id = ALL (select item from Orders where amount > 200);

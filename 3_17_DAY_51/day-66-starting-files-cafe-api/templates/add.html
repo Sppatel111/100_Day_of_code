@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Cafe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Add a New Cafe</h1>
+        <form method="POST" action="/add_cafe">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control") }}
+                {% for error in form.name.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.map_url.label(class="form-label") }}
+                {{ form.map_url(class="form-control") }}
+                {% for error in form.map_url.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.img_url.label(class="form-label") }}
+                {{ form.img_url(class="form-control") }}
+                {% for error in form.img_url.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.location.label(class="form-label") }}
+                {{ form.location(class="form-control") }}
+                {% for error in form.location.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.has_sockets.label(class="form-label") }}
+                {{ form.has_sockets() }}
+            </div>
+            <div class="form-group">
+                {{ form.has_toilet.label(class="form-label") }}
+                {{ form.has_toilet() }}
+            </div>
+            <div class="form-group">
+                {{ form.has_wifi.label(class="form-label") }}
+                {{ form.has_wifi() }}
+            </div>
+            <div class="form-group">
+                {{ form.can_take_calls.label(class="form-label") }}
+                {{ form.can_take_calls() }}
+            </div>
+            <div class="form-group">
+                {{ form.seats.label(class="form-label") }}
+                {{ form.seats(class="form-control") }}
+                {% for error in form.seats.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.coffee_price.label(class="form-label") }}
+                {{ form.coffee_price(class="form-control") }}
+                {% for error in form.coffee_price.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Add Cafe</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
