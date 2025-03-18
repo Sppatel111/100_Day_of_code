@@ -1,0 +1,36 @@
+
+
+###SELECT INTO
+
+COPIES THE DATA FROM ONE TABLE INTO NEW TABLE
+
+SELECT * INTO XYZ FROM Customers;
+
+#for another table
+SELECT * INTO XYZ IN 'another.db' FROM Customers;
+
+SELECT * INTO XYZ FROM Customers where customer_id =1;
+
+
+
+####INSERT INTO SELECT STATEMENT
+
+COPIES THE DATA FROM ONE TABLE AND INSERT IN TO ANOTHER TABLE
+
+INSERT INTO Orders(amount,item) SELECT age,country FROM Customers;
+
+INSERT INTO Orders(amount,item) SELECT age,country FROM Customers where age>23;
+
+
+##sql case
+
+  SELECT first_name,age, CASE WHEN age>25 THEN ' greter than 25'
+  WHEN age=25 THEN 'equal to'
+  ELSE 'less than '
+  END AS CATEGORY FROM Customers;
+
+  SELECT customer_id, first_name, age FROM Customers ORDER BY ( CASE WHEN age>25 THEN ' greter than 25'
+  WHEN age=25 THEN 'equal to'
+  ELSE 'less than '
+  END);
+
