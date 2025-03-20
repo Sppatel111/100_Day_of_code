@@ -1,0 +1,24 @@
+update Orders set amount=" "  where order_id=5;
+
+#IFNULL(),ISNULL()
+SELECT order_id, IFNULL(amount,0) from Orders;
+
+### operators
+##arthmetic operator
+select 5+11;
+select 5-11;
+select 5*11;
+select 5/11;
+
+
+## comparison operator
+select * from Orders where amount=400;
+select * from Orders where amount>400;
+select * from Orders where amount<400;
+select * from Orders where amount>=400;
+select * from Orders where amount<=400;
+select * from Orders where amount<>400;
+
+
+
+
