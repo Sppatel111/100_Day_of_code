@@ -63,3 +63,6 @@ MULTI LINE:
 
 /* select * from Orders
 where CustomerID = SOME(select CustomerID from Customers where Country = 'Germany' ); */
+
+
+git reset --soft HEAD~1

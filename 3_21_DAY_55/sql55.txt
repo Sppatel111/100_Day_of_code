@@ -1,0 +1,21 @@
+
+##Stored Procedure
+
+prepared sql code that you can save .
+so we can resue it.
+
+CREATE OR REPLACE PROCEDURE add_user(e VARCHAR, p VARCHAR, d VARCHAR)
+LANGUAGE plpgsql
+AS $
+BEGIN
+    INSERT INTO user_auth(email, password, department) VALUES (e, p, d);
+END;$;
+
+CALL add_user('user@example.com', 'password', 'Python');
+
+# database
+
+create database db_name;
+drop database db_name;
+
+backup database db_name to disk=''D:\SNEHA1\backup.bak'
