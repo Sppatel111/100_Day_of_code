@@ -1,0 +1,65 @@
+## logical operators
+
+## ANY and ALL use for the comparison( = < > <>)
+
+ALL: all the subquery meets the condition
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+
+ANY: if any subquery meets the condition  --or--
+SOME:if any of the subquery value meets the condition.
+
+SOME AND OR EQUIVALENT
+
+select * from Orders
+where CustomerID = ANY(select CustomerID from Customers where Country = 'Germany' );
+
+
+AND:if both condition need to be  true
+
+select * from Orders where customer_id =4 and amount=400;
+
+BETWEEN: it show between the condition
+
+select * from Orders where  amount between 200 and 400;
+
+EXISTS:
+true when subquery return one or more records
+select * from Customers
+ where exists(select item from Orders where Customers.customer_id=Orders.customer_id);
+
+IN:
+return true if one of the records are in match.
+
+select * from Customers where country IN('USA','UAE');
+
+LIKE:
+if mathess paterns
+
+select * from Customers where first_name like 'J%';
+
+NOT:
+
+select * from Customers where first_name not like 'J%';
+
+OR:
+one of them are true then return
+
+select * from Orders where  amount=250 or amount=400;
+
+
+SINGLE LINE COMMENT:
+ "--"
+
+ -- SELECT QUERY
+ select * from Orders;
+
+  select * from Orders --WHERE order_id=2;
+
+
+MULTI LINE:
+
+/* select * from Orders
+where CustomerID = SOME(select CustomerID from Customers where Country = 'Germany' ); */

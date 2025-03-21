@@ -46,6 +46,7 @@ class User(UserMixin, db.Model):
 
     posts = relationship("BlogPost", back_populates="author")
     comments=relationship("Comment",back_populates="comment_author")
+
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

@@ -1,9 +1,12 @@
 update Orders set amount=" "  where order_id=5;
 
-#IFNULL(),ISNULL()
+#IFNULL() OR ISNULL() OR NVL() BASED ON SOFTWARE
 SELECT order_id, IFNULL(amount,0) from Orders;
 
-### operators
+#COALESCE()
+IT USED FOR REMOVE THE FIRST NULL COLUMN ARE REMOVING OR WHEN SELCTING TABLE IT NOT SHOW THAT ROWS.
+
+## operators
 ##arthmetic operator
 select 5+11;
 select 5-11;
