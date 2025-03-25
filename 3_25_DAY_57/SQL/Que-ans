@@ -1,0 +1,69 @@
+
+1.	Select the detail of the employee whose name start with P
+
+     select * from EmpDetails where empname like 'P%';
+
+2.	How many permanent candidate take salary more than 5000.
+    select count(*) from EmpSalary where ispermanent='Yes' and Salary>5000;
+
+3.	Select the detail of employee whose emailId is in gmail.
+    select * from EmpDetails where emailid like '%gmail%';
+
+4.	Select the details of the employee who work either for department E-104 or E-102.
+select * from EmpDetails where department='E-104' or department='E-102';
+
+5.	What is the department name for DeptID E-102?
+select DeptName from EmpDept where deptid=(select department from EmpDetails where department='E-102');
+
+6.	What is total salary that is paid to permanent employees?
+select sum(salary) from EmpSalary where ispermanent='Yes';
+
+7.	List name of all employees whose name ends with a.
+select empname from EmpDetails where empname like '%a';
+
+8.	List of employees in each project.
+    select count(EmpId),ProjectId from EmpProject group by ProjectId;
+
+9.	How many project started in year 2010.
+ select count(*) from EmpProject where StartYear=2010;
+
+10.	How many project started and finished in the same year.
+ select count(*) from EmpProject where startyear=endyear;
+
+11.	select the name of the employee whose name's 3rd charactor is 'h'.
+ select empname  from EmpDetails where empname like '__h%';
+
+12.	Select the department name of the company which is assigned to the employee whose employee id is grater 103.
+   select DeptName from EmpDept where DeptHead > 103;
+
+### wrong
+13.	Select the name of the employee who is working under Abhishek.
+
+select empname from EmpDetails where department=(select DeptID from EmpDept where DeptHead=(select Empid from EmpDetails where empname='Abhishek');
+
+answer:
+SELECT EmpName
+FROM EmpDetails
+WHERE EmpHeadId = (
+    SELECT Empid
+    FROM EmpDetails
+    WHERE EmpName = 'Abhishek'
+);
+
+14.	Select the name of the employee who is department head of HR.
+select empname from EmpDetails where department=(select DeptID from EmpDept where DeptName='HR');
+
+15.	Select the name of the employee head who is permanent.
+select empname from EmpDetails where EmpHeadId=ANY(select EmpId from EmpSalary where IsPermanent='Yes');
+
+16.	Select the name and email of the Dept Head who is not Permanent.
+select EmpName,EmailId from EmpDetails where EmpHeadId=ANY(select EmpId from EmpSalary where IsPermanent='No');
+
+17.	Select the employee whose department off is Monday
+select * from EmpDetails where department=(select DeptID from EmpDept where Dept_off='Monday');
+
+18.	select the indian clinets details.
+ select * from  ClientTable where cid=(select cid from Country where cname='India');
+
+19.	select the details of all employee working in development department.
+select * from EmpDetails where department =(select DeptId from EmpDept where DeptName='Development');
