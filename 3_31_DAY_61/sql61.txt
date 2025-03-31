@@ -1,0 +1,26 @@
+select now();
+
+case:
+
+SELECT Order_id, amount,
+CASE WHEN amount > 400 THEN 'The amount is greater than 400'
+WHEN amount = 400 THEN 'The amount is 400'
+ELSE 'The amount is under 400'
+END AS QuantityText
+FROM Orders;
+
+sql KEYWORDS:
+
+ALTER TABLE Orders ADD DATE VARCHAR(255);
+
+ALTER TABLE cars ADD constraint  PK_car PRIMARY KEY (car);
+
+select first_name from Customers where customer_id =ALL(select customer_id from Orders where amount < 11111111);
+
+alter table Orders drop column DATE;
+
+alter table cars rename column color to  car_color;
+
+alter table cars alter column car_color type varchar(150);
+
+select * from Customers where country='USA' and age >25;

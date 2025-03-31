@@ -2,18 +2,18 @@ import smtplib
 import getpass
 import imaplib
 import email
-
+from mail_cred import EMAIL,PASSWORD
 #put in config file.
-EMAIL = "abcd1234567sp@gmail.com"
-PASSWORD = "unjggoojpipszyqr"
+email1=EMAIL
+password=PASSWORD
 
 # obj = smtplib.SMTP('smtp.gmail.com', 587)
 # print(obj.ehlo())
 
 # obj.starttls()
-# obj.login(EMAIL,PASSWORD)
+# obj.login(email1,password)
 
-# obj.sendmail(from_addr=EMAIL,to_addrs=EMAIL,msg=f'Subject:Section 18\n\n about the email.')
+# obj.sendmail(from_addr=email1,to_addrs=email1,msg=f'Subject:Section 18\n\n about the email.')
 
 # password = getpass.getpass('Password pls:')
 #
@@ -22,7 +22,7 @@ PASSWORD = "unjggoojpipszyqr"
 
 ## starting imaplib
 M = imaplib.IMAP4_SSL('imap.gmail.com')
-M.login(EMAIL, PASSWORD)
+M.login(email1, password)
 # print(M.list())
 
 inb = M.select('inbox')

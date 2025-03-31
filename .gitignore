@@ -20,17 +20,14 @@
 3_4_DAY_43/workout_tracker/config3.py
 
 
-
-
 #3_10_DAY_47 still remain to ignore
 3_10_DAY_47/spotify_config.py
 
 #3_11_DAY_48
 3_11_DAY_48/amazon_price_tracker/mail_config.py
 
-
-
-
+#3_26_DAY_58
+3_26_DAY_58/mail_cred.py
 
 #3_5_DAY_44
 3_5_DAY_44/flight_deals/.env
