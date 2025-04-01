@@ -1,0 +1,87 @@
+SQL keywords:
+#ANY
+select ProductName from Products where ProductID = ANY
+(select ProductID from OrderDetails where Quantity > 10);
+
+#as
+SELECT first_name as fn, age as a
+FROM Customers;
+
+SELECT customer_id , first_name + ' ' + last_name AS name
+FROM Customers;
+
+#ASC
+SELECT customer_id ,first_name,age from Customers order by age asc ;
+
+#database backup
+(WITH DIFFERENTIAL- use this for last changes only )
+pg_dump -U postgres -W -F p -f D:/SNEHA1/posts_backup.sql Posts
+
+#between
+SELECT customer_id ,first_name,age from Customers where age between 10 and 25 ;
+
+#check
+create table for_check (age int check(age >=18));
+insert into For_check (age ) values (12);
+output:
+    Error: CHECK constraint failed: age >=18
+
+alter table Customers drop constraint chk_personage check(age>=18);
+alter table Customers drop chk_personage ;
+
+## alter cloumn
+alter table Customers rename column age to p_age;
+
+alter table customers drop column p_age;
+
+##create database
+
+create database mydb;
+create table mytable (PersonID int , name varchar(255), city varchar(255));
+
+create table take as select first_name, last_name from  Customers ;
+
+##index
+CREATE INDEX idx_lastname
+ON Customers (last_name);
+
+
+
+## view
+create view [USA Customers] as select * from Customers where country ='USA';
+
+select * from [USA Customers];
+
+#CREATE OR REPLACE VIEW : this will update view
+
+## procedure
+
+1>
+CREATE OR REPLACE PROCEDURE safe_add_person(IN f_name VARCHAR, IN l_name VARCHAR)
+LANGUAGE SQL
+AS $$
+    INSERT INTO Person (first_name, last_name) VALUES (f_name, l_name);
+$$;
+
+call safe_add_person('abc','patel');
+
+
+2>
+CREATE OR REPLACE PROCEDURE genre_insert_data("GenreId" integer, "Name" character varying)
+LANGUAGE SQL
+ AS $$
+INSERT INTO Genre VALUES ("GenreId", "Name");
+$$;
+
+call genre_insert_data(2,'abc');
+
+
+3>
+CREATE  or replace PROCEDURE get_all_users()
+LANGUAGE SQL
+AS $$
+    SELECT * FROM Person;
+$$;
+
+call get_all_users();
+

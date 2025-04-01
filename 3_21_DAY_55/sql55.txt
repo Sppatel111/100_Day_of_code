@@ -18,4 +18,7 @@ CALL add_user('user@example.com', 'password', 'Python');
 create database db_name;
 drop database db_name;
 
+#not work
 backup database db_name to disk=''D:\SNEHA1\backup.bak'
+#work
+pg_dump -U postgres -W -F p -f D:/SNEHA1/posts_backup.sql Posts
