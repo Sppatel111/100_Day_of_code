@@ -1,0 +1,58 @@
+
+### unique indexing
+create unique index IX_id ON Customers(customer_id );
+
+#defualt
+create table Product ( id int , name varchar(255), city varchar(255) default 'anand');
+insert into Product(id,name) values(1,'remote');
+
+#delete
+delete from Product where name='r1';
+delete from Product;
+
+select * from Customers order by first_name desc;
+
+select * from Customers where exists(select customer_id from Orders where Orders.customer_id =Customers.customer_id);
+
+##joins
+##INNER JOIN
+ select empdetails.empname,empdetails.empid,empdept.deptname,empdept.dept_off
+ from empdetails inner join empdept on  empdetails.department=empdept.deptid;
+
+
+## LEFT JOIN
+
+select empdetails.empname,empdetails.empid,empdept.deptname,empdept.dept_off from
+empdetails left join empdept on  empdetails.department=empdept.deptid;
+
+## RIGHT JOIN
+
+ select empdetails.empname,empdetails.empid,empdept.deptname from empdetails
+ right join empdept on  empdetails.department=empdept.deptid;
+
+
+## FULL OUTER JOIN
+
+select empdetails.empname,empdetails.empid,empdept.deptname,empdept.dept_off from
+empdetails full outer  join empdept on  empdetails.department=empdept.deptid;
+
+
+## SELF JOIN
+
+select A.empname as e1,B.empname as e2 from empdetails A, empdetails B where A.empid <> B.empid ;
+
+##ascii
+
+ select ascii(empname)as first_char,empname from empdetails;
+
+##CHAR_LENGTH
+
+select char_length(empname)as first_char,empname from empdetails
+
+##concat
+
+SELECT  CONCAT ('John', ' ', 'Doe') full_name;
+
+select   'John' ||' ' || 'name' result;
+
+SELECT LEFT('SQL Tutorial', 3) AS ExtractString;
