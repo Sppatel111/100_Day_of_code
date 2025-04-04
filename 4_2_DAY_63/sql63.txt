@@ -47,7 +47,7 @@ select A.empname as e1,B.empname as e2 from empdetails A, empdetails B where A.e
 
 ##CHAR_LENGTH
 
-select char_length(empname)as first_char,empname from empdetails
+select char_length(empname)as length_char,empname from empdetails
 
 ##concat
 

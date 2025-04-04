@@ -1,0 +1,19 @@
+## auto increment
+
+create table users(id serial primary key ,name varchar(255));
+
+## DATETIME
+select current_time;
+
+select current_date;
+
+select current_timestamp;
+
+## view
+
+CREATE OR REPLACE VIEW HR_empdept as select * from empdept where deptname='HR';
+
+select * from HR_empdept;
+
+## explored sql injection and hosting overview
+
