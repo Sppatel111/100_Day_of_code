@@ -1,0 +1,12 @@
+postgress
+###is null
+
+select empname,department from empdetails where emailid is null;
+
+
+select empname,department from empdetails where emailid is not null;
+
+
+### select top or limit
+
+select * from empdetails limit 3;
