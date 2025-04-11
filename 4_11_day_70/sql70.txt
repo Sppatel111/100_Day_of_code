@@ -1,0 +1,5 @@
+select * from Customers;
+select distinct country from Customers;
+select count(distinct country) from Customers;
+ select count(*) as distinctcouteries from (select distinct country from Customers
+);

@@ -1,0 +1,4 @@
+
+hello , hi, here the the words count code text file to count the words.
+
+here i open the file AND save through  tkinter notpad.
