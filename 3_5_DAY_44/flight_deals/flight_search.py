@@ -1,19 +1,19 @@
 import requests
 from dotenv import load_dotenv
-# from config44 import API_KEY,API_SECRET
+from config44 import API_KEY,API_SECRET
 import os
 # from https://developers.amadeus.com/
-load_dotenv()
-api_key=os.environ.get("API_KEY")
-api_secret=os.environ.get("API_SECRET")
+
+# api_key=os.environ.get(API_KEY)
+# api_secret=os.environ.get(API_SECRET)
 
 flight_endpoint='https://test.api.amadeus.com/v2/shopping/flight-offers'
 iata_endpoint='https://test.api.amadeus.com/v1/reference-data/locations/cities'
 token_endpoint='https://test.api.amadeus.com/v1/security/oauth2/token'
 class FlightSearch:
     def __init__(self):
-        self.api_key=api_key
-        self.api_secret=api_secret
+        self.api_key=API_KEY
+        self.api_secret=API_SECRET
         self.token=self.get_new_token()
 
     def get_new_token(self):
