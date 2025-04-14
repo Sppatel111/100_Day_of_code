@@ -1,5 +1,3 @@
-#virtula envioronment
-.venv
 
 #1_31_DAY_21
 1_31_DAY_21/SMTP/birthday_wishes/pass2.py
@@ -14,31 +12,26 @@
 2_28_DAY_41/config.py
 #3_3_DAY_42
 3_3_DAY_42/secret.py
-
 #3_4_DAY_43
 3_4_DAY_43/stock-news/secret1.py
 3_4_DAY_43/workout_tracker/config3.py
-
 #remaining
 #3_5_DAY_44
 3_5_DAY_44/flight_deals/config44.py
-
 #3_10_DAY_47 still remain to ignore
 3_10_DAY_47/spotify_config.py
-
-
 #remaining
 #3_11_DAY_48
 3_11_DAY_48/amazon_price_tracker/mail_config.py
-
+#blog app
 3_21_DAY_55/day-71-blog-for-deployment/instance/
-
 #remaining
 #3_26_DAY_58
 3_26_DAY_58/mail_cred.py
-
-
 #4_14_DAY_71
 ## again i do
 #remaining
 4_14_day_71/stock_cofig71.py
+
+#virtula envioronment
+.venv
