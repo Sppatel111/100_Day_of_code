@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook / Journal</title>
+</head>
+<body>
+    <h1>Guestbook / Journal</h1>
+    <form action="/add" method="POST">
+        <textarea name="content" rows="4" cols="50" placeholder="Write your comment or journal entry here..."></textarea><br>
+        <input type="submit" value="Add Entry">
+    </form>
+    <h2>Entries:</h2>
+    <ul>
+        {% for entry in entries %}
+            <li><strong>{{ entry.timestamp }}</strong>: {{ entry.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
