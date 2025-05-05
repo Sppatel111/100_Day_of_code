@@ -1,0 +1,43 @@
+select clientname,cid from clienttable;
+
+select distinct cname from country;
+
+select count(distinct cname) from country;
+
+select count(*) as distinctcountry from (select distinct cname from country);
+
+ select * from country where cname='India';
+ select * from empsalary where salary=5000;
+ select * from empsalary where salary < 5000;
+ select * from empsalary where salary > 5000;
+ select * from empsalary where salary >= 5000
+ select * from empsalary where salary <= 5000;
+ select * from empsalary where salary != 5000;
+ select * from empsalary where salary in(5000,1900);
+ select * from empsalary where salary between 1900 and 5000;
+ select * from empsalary where ispermanent like 'Y%';
+
+select * from empsalary order by salary;
+
+select * from empsalary order by salary desc;
+select * from clienttable order by clientname;
+select * from clienttable order by clientname desc;
+select * from empsalary order by ispermanent asc,salary desc;
+select * from empdept where dept_off='Tuesday' and deptname like 'P%';
+select * from empdept where dept_off='Tuesday' and deptname like 'P%' and depthead=104;
+select * from empdept where dept_off='Tuesday' and (deptname like 'P%' or depthead=105);
+select * from empdept where dept_off='Tuesday' and deptname like 'P%' or depthead=104;
+
+select * from empdept where deptname='HR' or dept_off='Tuesday';
+
+select * from empdept where not dept_off='Monday';
+
+select * from empdept where  dept_off not like 'M%';
+
+select * from empsalary where salary not between 1900 and 5000;
+
+select * from empsalary where salary not in(1900, 5000);
+
+select * from empsalary where not salary>5000;
+
+select * from empsalary where not salary<5000;
