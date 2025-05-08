@@ -1,0 +1,30 @@
+14. Select the name of the employee who is department head of HR.
+
+
+select empname from empdetails where empid=any(select depthead from empdept where deptname='HR');
+select e.empname from empdept as d inner join empdetails as e on d.depthead == e.empid where deptname='HR';
+
+15. Select the name of the employee head who is permanent.
+
+
+ select empname from empdetails where empid =any(select empid from empsalary where empid in(select empheadid from empdetails)
+ and  ispermanent='Yes');
+select e.empname from empsalary as s join empdetails as e on s.empid=e.empid where s.empid in(select empheadid from empdetails)
+ and ispermanent='Yes';
+
+
+16. Select the name and email of the Dept Head who is not Permanent.
+
+
+select empname,emailid from empdetails where empid=any(select d.depthead from empdept as d join empsalary as s
+on s.empid=d.depthead where s.IsPermanent = 'No');
+select e.empname,e.emailid from empdept as d join empdetails as e on d.depthead=e.empid join empsalary as s
+on d.depthead=s.empid where s.IsPermanent ='No';
+
+
+# two
+ select e.empid,e.empname,d.deptname from empdept as d join empdetails as e on d.deptid =e.department;
+
+# three                     ^
+TEST=# select e.empid ,e.empname,d.deptname, s.ispermanent,s.salary from empsalary as s join empdetails as e
+ on s.empid=e.empid join empdept as d on e.department=d.deptid where s.ispermanent='Yes';

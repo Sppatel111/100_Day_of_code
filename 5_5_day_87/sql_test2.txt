@@ -52,15 +52,28 @@ select deptname from empdept where deptid= any(select department from empdetails
 
 --14. Select the name of the employee who is department head of HR.
 ----------
+wrong:
 select empname from empdetails where department=any(select deptid from empdept where deptname='HR');
+
+correct:
+select empname from empdetails where empid=any(select depthead from empdept where deptname='HR');
+select e.empname from empdept as d inner join empdetails as e on d.depthead == e.empid where deptname='HR';
 
 --15. Select the name of the employee head who is permanent.
 ----------
+Wrong:
  select empname from empdetails where empheadid =any(select empid from empsalary where ispermanent='Yes');
+ correct:
+ select empname from empdetails where empid =any(select empid from empsalary where empid in(select empheadid from empdetails) and  ispermanent='Yes');
+select e.empname from empsalary as s join empdetails as e on s.empid=e.empid where s.empid in(select empheadid from empdetails) and ispermanent='Yes';
 
 --16. Select the name and email of the Dept Head who is not Permanent.
 ----------
-select EmpName,EmailId from EmpDetails where EmpHeadId=ANY(select EmpId from EmpSalary where IsPermanent='No');
+Wrong:
+select EmpName,EmailId from EmpDetails where EmpId=ANY(select EmpId from EmpSalary where IsPermanent='No');
+correct:
+select empname,emailid from empdetails where empid=any(select d.depthead from empdept as d join empsalary as s on s.empid=d.depthead where s.IsPermanent = 'No');
+select e.empname,e.emailid from empdept as d join empdetails as e on d.depthead=e.empid join empsalary as s on d.depthead=s.empid where s.IsPermanent ='No';
 
 --17. Select the employee whose department off is Monday
 
@@ -76,5 +89,5 @@ select * from clienttable where cid=any(select cid from country where cname='Ind
 
 --20. Select the client name, who has worked on one project at least for one year and half year.
 -----------
-select clientname from clienttable where clientid=any(select clientid from empproject where startyear-endyear>=1.5);
-select clientname from clienttable where clientid=any(select clientid from empproject where startyear-endyear>=1.5 and not endyear isnull);
+select clientname from clienttable where clientid=any(select clientid from empproject where  endyear is  not null and (endyear-startyear)>=1.5 );
+select c.clientname from empproject as p join clienttable as c on p.clientid=c.clientid where endyear is  not null and (endyear-startyear)>=1.5 ;
