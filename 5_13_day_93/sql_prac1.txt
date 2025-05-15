@@ -1,0 +1,62 @@
+sql commands :
+DDL
+    1.create
+     --create table xyz(id int,name varchar(255),profession varchar(255));
+     --select * from xyz;
+    2.alter
+        --alter table xyz add column age int;
+        --alter table xyz drop column profession;
+        --alter table xyz rename column name to fname;
+        --alter table xyz alter column age type float;
+
+        --alter table xyz alter column  id set not null;
+        --alter table abc alter column id drop not null;
+
+        -- for default
+        --alter table xyz alter column age set default 18;
+        --alter table xyz alter column age drop default;
+
+        --constraint
+        --alter table xyz add constraint notnull_id check (id is not null);
+        --alter table xyz drop constraint notnull_id;
+
+        --foreign key constraint
+          -- create another table
+          --create table xyz (id serial primary key,p_name varchar(255), price int);
+          --alter table abc add constraint foreign_constraint foreign key (id) references xyz(id);
+          --alter table abc drop constraint foreign_constraint;
+
+        -- table name
+        --alter table xyz rename to abc;
+        --select * from abc;
+
+        --ownership
+
+DML
+ Insert:
+    --insert into xyz(id,fname) values(1,22);
+    --insert into xyz(p_name,price) values ('ice',200);
+
+
+
+        SELECT rolname FROM pg_roles;
+
+        SELECT schemaname, tablename, tableowner FROM pg_tables WHERE tablename = 'xyz';
+
+
+        SELECT d.datname AS database_name,
+               r.rolname AS owner
+        FROM pg_database d
+        JOIN pg_roles r ON d.datdba = r.oid
+        WHERE d.datname = 'postgres';
+
+
+        CREATE ROLE admin_onwer  WITH LOGIN PASSWORD 'admin_owner1' IN ROLE pg_read_all_data;
+
+        CREATE ROLE sneha_patel WITH LOGIN PASSWORD 'sneha@alian';
+
+        SELECT rolname FROM pg_roles WHERE rolname = 'admin_owner';
+
+         ALTER table abc  OWNER TO admin_owner;
+
+          \du

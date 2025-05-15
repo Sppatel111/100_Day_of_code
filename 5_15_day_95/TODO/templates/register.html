@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   <form method=post>
+       {{ form.hidden_tag() }}
+       {{ form.username.label }}
+       {{ form.username(class="form-control", placeholder="joey tribbianni") }} <br>
+       {{ form.email.label }}
+       {{ form.email(class="form-control", placeholder="user@example.com") }} <br>
+       {{ form.password.label }}
+       {{ form.password(class="form-control", placeholder="Enter a secure password") }}<br>
+  <p><input type=submit value=signup>
+</form>
+
+</body>
+</html>
