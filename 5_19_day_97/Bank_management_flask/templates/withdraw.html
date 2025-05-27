@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action ='/withdraw'>
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+
+   {{ form.amount.label }}
+    {{ form.amount()}} <br>
+
+    <p><input type="submit" value="Withdraw"></p>
+</form>
+</body>
+</html>

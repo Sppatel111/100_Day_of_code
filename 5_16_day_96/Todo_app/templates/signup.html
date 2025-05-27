@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form method="POST" action="{{ url_for('signup') }}">
+     {{ form.hidden_tag() }}
+{{ form.username.label }}
+{{ form.username(class="form-control", placeholder=" dgertert ")}} <br>
+{{ form.email.label }}
+{{ form.email(class="form-control", placeholder=" dgertert ")}} <br>
+{{ form.password.label }}
+{{ form.password(class="form-control", placeholder=" dgertert ")}}
+
+     <p><input type=submit value=signup>
+ </form>
+
+</body>
+</html>

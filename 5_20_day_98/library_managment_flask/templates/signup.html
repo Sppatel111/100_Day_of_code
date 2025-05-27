@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action ='/signup'>
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+
+    {{ form.username.label }}
+    {{ form.username()}} <br>
+
+   {{ form.email.label }}
+    {{ form.email()}} <br>
+
+    {{ form.phone.label }}
+    {{ form.phone() }} <br>
+
+    {{ form.address.label }}
+    {{ form.address() }} <br>
+
+    {{ form.password.label }}
+    {{ form.password() }} <br>
+
+    <p><input type="submit" value="Register"></p>
+
+</body>
+</html>

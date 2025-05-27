@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Return Book</h1>
+<hr>
+<hr>
+<h1>{{l1.book_id}}</h1>
+<h2>{{detail.name}}</h2>
+<hr>
+ <h3>Borrow id: {{l1.id}}</h3>
+  <h2>Borrow Date: {{l1.taken_date}}</h2>
+  <h5>Return Date: {{l1.return_date}}</h5>
+  <form method="POST">
+      {{ form.hidden_tag() }}
+      {{ form.csrf_token }}
+      <p><input type="submit" value="Return"></p>
+
+  </form>
+</body>
+</html>

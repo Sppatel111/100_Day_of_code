@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Admin add rooms</h1>
+ <form method="POST" action="/add">
+     {{ form.csrf_token }}
+
+     {{ form.type.label }}
+     {{ form.type() }}
+     <br>
+     {{ form.status.label }}
+     {{ form.status() }}<br>
+
+     {{ form.price.label }}
+     {{ form.price() }}<br>
+
+     <p><input type="submit" value="Add"></p>
+ </form>
+
+</body>
+</html>

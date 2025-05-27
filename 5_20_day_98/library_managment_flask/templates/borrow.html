@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <h1>{{b1.id}}</h1>
+  <h2>{{b1.name}}</h2>
+  <h5>{{b1.status}}</h5>
+  {% if b1.status == 'available' %}
+  <form >
+  <a href="{{url_for('borrow_by_person',id=b1.id)}}" type="submit" >Borrow</a>
+  </form>
+  {% else %}
+  <h3> not avaliable </h3>
+  {% endif %}
+</body>
+</html>

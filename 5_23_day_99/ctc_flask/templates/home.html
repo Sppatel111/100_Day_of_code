@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<table class="table">
+  <thead class="thead-dark">
+
+    <tr>
+      {% for i in data %}
+      <th scope="col">{{i}}</th>
+      {% endfor %}
+      <th scope="col">Present</th>
+      <th scope="col">Leaves</th>
+      <th scope="col">Basic</th>
+      <th scope="col">HRA</th>
+      <th scope="col">Dearness Allowance</th>
+      <th scope="col">Other Allowance</th>
+      <th scope="col">PF Cal.</th>
+      <th scope="col">Leave Deduction</th>
+      <th scope="col">Net Salary</th>
+
+
+    </tr>
+
+  </thead>
+  <tbody>
+  {% for emp in employers %}
+    <tr>
+      <td>{{emp['Employee Name']}}</td>
+      <td>{{emp['Salary']}}</td>
+      <td>{{emp['PF']}}</td>
+      <td>{{emp['Working Hours']}}</td>
+      <td>{{emp['Working Days']}}</td>
+      <td>{{emp['Present']}}</td>
+      <td>{{emp['Leaves']}}</td>
+      <td>{{emp['Basic']}}</td>
+      <td>{{emp['HRA']}}</td>
+      <td>{{emp['DA']}}</td>
+      <td>{{emp['OA']}}</td>
+      <td>{{emp['PFC']}}</td>
+      <td>{{emp['LD']}}</td>
+      <td>{{emp['NS']}}</td>
+
+
+
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+</body>
+</html>
