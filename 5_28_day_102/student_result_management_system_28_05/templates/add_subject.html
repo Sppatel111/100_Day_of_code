@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h2> Add subject detail:</h2>
+<form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.semester.label }}
+    {{ form.semester() }}
+
+    {{ form.subject.label }}
+    {{ form.subject() }}
+
+    {{ form.score.label }}
+    {{ form.score() }}
+
+    <p><input type="submit" value="ADD"></p>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.amount.label }}
+    {{ form.amount() }} <br>
+
+    <p><input type="submit" value="Deposit"></p>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</head>
+<body>
+<h1 class="text-center"> SCORECARD</h1>
+ <h3 class="text-center">{{ s1.enroll_id }}</h3>
+     <h3 class="text-center">{{ s1.full_name }} </h3>
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">Subject id</th>
+      <th scope="col">Semester</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for s in sub1 %}
+    <tr>
+      <td>{{s.id}}</td>
+      <td>{{s.semester }}</td>
+      <td>{{s.subject }}</td>
+      <td>{{ s.score }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>SEM1 AVG: {{s.avg(s1.id,'sem1')}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    SEM2 AVG: {{s.avg(s1.id,'sem2')}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    SEM3 AVG: {{s.avg(s1.id,'sem3')}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    SEM4 AVG: {{s.avg(s1.id,'sem4')}}
+</h3>
+</body>
+</html>

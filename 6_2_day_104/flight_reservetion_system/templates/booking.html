@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>
+ {{ f.id }}<br>
+     {{ f.flight_number }}<br>
+     From:{{ f.origin }}<br>
+      To: {{ f.destination }}<br>
+       seats: {{ f.seats }}<br>
+
+</h2>
+<form method="POST">
+    {{ form.csrf_token }}
+
+    <a><input type="submit" value="Book Now"></a>
+</form>
+
+{% if flag == True %}
+<a> alerdy booked.</a>
+{%endif %}
+</body>
+</html>

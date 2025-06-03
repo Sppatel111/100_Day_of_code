@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.flight_number.label }}
+    {{ form.flight_number() }}<br>
+
+    {{ form.origin.label }}
+    {{ form.origin() }}<br>
+
+    {{ form.destination.label }}
+    {{ form.destination() }}<br>
+
+    {{ form.seats.label }}
+    {{ form.seats() }} <br>
+
+    <p><input type="submit" value="Add"></p>
+
+</form>
+
+</body>
+</html>

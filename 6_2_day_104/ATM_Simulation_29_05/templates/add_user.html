@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" >
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+
+   {{ form.email.label }}
+    {{ form.email()}} <br>
+
+    {{ form.account.label }}
+    {{ form.account()}} <br>
+
+    {{ form.aadhar.label }}
+    {{ form.aadhar() }} <br>
+
+    {{ form.pin.label }}
+    {{ form.pin() }} <br>
+
+    <p><input type="submit" value="ADD"></p>
+</form>
+
+</body>
+</html>
