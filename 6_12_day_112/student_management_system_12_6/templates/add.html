@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 class="text-center"> Add New Student </h1>
+<form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.name.label }}
+    {{ form.name() }}<br>
+
+    {{ form.roll_number.label }}
+    {{ form.roll_number() }}<br>
+
+    {{ form.maths.label }}
+    {{ form.maths() }} <br>
+
+    {{ form.chemistry.label }}
+    {{ form.chemistry() }} <br>
+
+    {{ form.physic.label }}
+    {{ form.physic() }} <br>
+
+    {{ form.english.label }}
+    {{ form.english() }} <br>
+
+    <p><input type="submit" value="Add"></p>
+
+
+
+</form>
+
+</body>
+</html>

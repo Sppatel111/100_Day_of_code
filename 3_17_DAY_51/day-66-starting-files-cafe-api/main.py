@@ -14,6 +14,7 @@ class Base(DeclarativeBase):
 
 
 # Connect to Database
+app.config['SECRET_KEY']='rwertwetwetwerwer'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
@@ -47,7 +48,7 @@ def home():
 
 
 # HTTP GET - Read Record
-@app.route("/random", methods=['GET'])
+@app.route("/random")
 def get_random_cafe():
     result = db.session.execute(db.select(Cafe))
     all_cafes = result.scalars().all()
@@ -67,13 +68,14 @@ def get_random_cafe():
         "coffe_price":random_cafe.coffee_price
     })
 
-@app.route("/all",methods=['GET'])
+@app.route("/all")
 def all_get():
     result=db.session.execute(db.select(Cafe))
     all_cafes=result.scalars().all()
 
     return jsonify(cafes=[cafe.to_dict() for cafe in all_cafes])
 
+#search?loc=London Bridge
 @app.route("/search")
 def search_by_location():
     query_location=request.args.get("loc")
@@ -85,26 +87,48 @@ def search_by_location():
         return jsonify(error={"Not Found":"sorry, we don't have cafe at that location"}),404
 
 # HTTP POST - Create Record
-@app.route("/add",methods=['POST'])
+# @app.route("/add", methods=["GET","POST"])
+# def post_new_cafe():
+#     if request.form=='POST':
+#         new_cafe = Cafe(
+#             name=request.form.get("name"),
+#             map_url=request.form.get("map_url"),
+#             img_url=request.form.get("img_url"),
+#             location=request.form.get("loc"),
+#             has_sockets=bool(request.form.get("sockets")),
+#             has_toilet=bool(request.form.get("toilet")),
+#             has_wifi=bool(request.form.get("wifi")),
+#             can_take_calls=bool(request.form.get("calls")),
+#             seats=request.form.get("seats"),
+#             coffee_price=request.form.get("coffee_price"),
+#         )
+#         db.session.add(new_cafe)
+#         db.session.commit()
+#         return jsonify(response={"success": "Successfully added the new cafe."})
+#     return render_template('add.html')
+@app.route("/add",methods=['GET','POST'])
 def post_new_cafe():
-    new_cafe=Cafe(
-        name=request.form.get("name"),
-        map_url = request.form.get("map_url"),
-        img_url = request.form.get("img_url"),
-        location = request.form.get("location"),
-        has_sockets = bool(request.form.get("has_sockets")),
-        has_toilet = bool(request.form.get("has_toilet")),
-        has_wifi = bool(request.form.get("has_wifi")),
-        can_take_calls = bool(request.form.get("can_take_calls")),
-        seats = request.form.get("seats"),
-        coffee_price = request.form.get("coffee_price"),
-    )
-    db.session.add(new_cafe)
-    db.session.commit()
-    return jsonify(response={"Success":"Successfully added new cafe."})
+    form=AddCafe()
+    if form.validate_on_submit():
+        new_cafe=Cafe(
+            name=request.form.get("name"),
+            map_url = request.form.get("map_url"),
+            img_url = request.form.get("img_url"),
+            location = request.form.get("location"),
+            has_sockets = bool(request.form.get("has_sockets")),
+            has_toilet = bool(request.form.get("has_toilet")),
+            has_wifi = bool(request.form.get("has_wifi")),
+            can_take_calls = bool(request.form.get("can_take_calls")),
+            seats = request.form.get("seats"),
+            coffee_price = request.form.get("coffee_price"),
+        )
+        db.session.add(new_cafe)
+        db.session.commit()
+        return jsonify(response={"Success":"Successfully added new cafe."})
+    return render_template('add.html',form=form)
 
 # HTTP PUT/PATCH - Update Record
-@app.route("/update-price/<int:cafe_id>", methods=["PATCH"])
+@app.route("/update-price/<int:cafe_id>", methods=["GET","PATCH"])
 def patch_new_price(cafe_id):
     new_price = request.args.get("new_price")
     cafe = db.get_or_404(Cafe, cafe_id)
@@ -118,7 +142,7 @@ def patch_new_price(cafe_id):
 # HTTP DELETE - Delete Record
 @app.route("/report-closed/<int:cafe_id>",methods=["Delete"])
 def delete_cafe(cafe_id):
-    api_key = request.args.get("api-key")
+    api_key = request.args.get("api_key")
     if api_key == "TopSecretAPIKey":
         cafe = db.get_or_404(Cafe, cafe_id)
         if cafe:

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</head>
+<body>
+<a class="btn btn-secondary" href="{{url_for('create_task')}}" role="button">Create Task</a>
+<a class="btn btn-secondary" href="{{url_for('logout')}}" role="button">logout</a>
+<form method="GET" action="{{ url_for('show_tasks') }}">
+        <select name="status" onchange="this.form.submit()">
+            <option value="all" {% if statusf =='all' %}selected{% endif %}>All</option>
+            <option value="todo" {% if statusf =='todo' %}selected{% endif %}>To Do</option>
+            <option value="active" {% if statusf =='active' %}selected{% endif %}>Active</option>
+            <option value="completed" {% if statusf =='completed' %}selected{% endif %}>Completed</option>
+        </select>
+    </form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col">Create At</th>
+        <th scope="col">Due date</th>
+        <th scope="col">Prority</th>
+        <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in task1 %}
+    <tr>
+
+      <td>{{t.id}}</td>
+      <td>{{t.title}}</td>
+        <td>{{t.description}}</td>
+        <td>{{t.is_completed}}</td>
+        <td>{{t.created_at}}</td>
+        <td>{{t.due_date}}</td>
+      <td>{{t.priority}}</td>
+        <td>
+           <a class="btn btn-primary" href="{{url_for('update_task',task_id=t.id)}}" role="button">Update</a>
+                <a class="btn btn-primary" href="{{url_for('delete_task',id=t.id)}}" role="button">Delete</a>
+        </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>

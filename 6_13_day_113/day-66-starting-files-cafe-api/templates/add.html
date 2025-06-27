@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Cafe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Add a New Cafe</h1>
+        <form method="POST" action="/add">
+            <input id="csrf_token" name="csrf_token" type="hidden" value="ImU0ZTA0YTNjYTU5ZDY3MTJjYzRlNjRhNDk0Y2M3ZWViY2IyNTlkNTEi.aEvJow.n4fgmcHCZcbtFP-GJg6nX0VAs4g">
+            <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" name="name" required type="text" value="zorko">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="map_url">MAP URL</label>
+                <input class="form-control" id="map_url" name="map_url" required type="url" value="https://www.google.com/search?q=soap+and+rest+architectual+difference&amp;rlz=1C1CHBD_enIN1056IN1056&amp;oq=soap+and+rest+architectual+difference&amp;gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABgIGA0YHjINCAIQABiGAxiABBiKBTINCAMQABiGAxiABBiKBTINCAQQABiGAxiABBiKBTINCAUQABiGAxiABBiKBTIHCAYQABjvBTIKCAcQABiABBiiBNIBCTEwMjA4ajBqN6gCALACAA&amp;sourceid=chrome&amp;ie=UTF-8">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="img_url">IMG URL</label>
+                <input class="form-control" id="img_url" name="img_url" required type="url" value="https://www.google.com/search?q=soap+and+rest+architectual+difference&amp;rlz=1C1CHBD_enIN1056IN1056&amp;oq=soap+and+rest+architectual+difference&amp;gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABgIGA0YHjINCAIQABiGAxiABBiKBTINCAMQABiGAxiABBiKBTINCAQQABiGAxiABBiKBTINCAUQABiGAxiABBiKBTIHCAYQABjvBTIKCAcQABiABBiiBNIBCTEwMjA4ajBqN6gCALACAA&amp;sourceid=chrome&amp;ie=UTF-8">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" id="location" name="location" required type="text" value="Anand">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="has_sockets"> Socket</label>
+                <input checked id="has_sockets" name="has_sockets" required type="checkbox" value="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="has_toilet">Toilet</label>
+                <input checked id="has_toilet" name="has_toilet" required type="checkbox" value="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="has_wifi"> wifi</label>
+                <input checked id="has_wifi" name="has_wifi" required type="checkbox" value="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="can_take_calls"> Take Calls</label>
+                <input checked id="can_take_calls" name="can_take_calls" required type="checkbox" value="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="seats">Seats</label>
+                <input class="form-control" id="seats" name="seats" type="range" value="11">
+
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="coffee_price">Coffee Price</label>
+                <input class="form-control" id="coffee_price" name="coffee_price" required type="text" value="110">
+
+            </div>
+            <button type="submit" class="btn btn-primary">Add Cafe</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
